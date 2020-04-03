@@ -1,0 +1,27 @@
+
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://172.25.4.211:3306/jrbdp_metadata?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: m_jrbdp_metadata
+      password: 28djyT
+      name: nebulae
+      driver-class-name: com.mysql.jdbc.Driver
+      type: com.alibaba.druid.pool.DruidDataSource
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      filters: stat,wall,log4j,config
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      stat-view-servlet.login-username: nebulae
+      stat-view-servlet.login-password: nebulae
+      aop-patterns: com.jd.nebulae.services.service.impl.*
